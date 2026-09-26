@@ -1,0 +1,200 @@
+.experience {
+  background: var(--bg-base);
+  transition: background-color 0.3s ease;
+}
+
+.experience-header {
+  margin-bottom: 3.5rem;
+}
+
+.timeline-container {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 0.5rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--accent-mint) 0%,
+    var(--accent-aqua) 50%,
+    var(--border) 100%
+  );
+  border-radius: 2px;
+}
+
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.role-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.role-node {
+  position: absolute;
+  left: -2rem;
+  top: 1.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+}
+
+.node-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--accent-mint);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.node-dot.is-active {
+  background: var(--accent-mint);
+  box-shadow: 0 0 10px var(--accent-mint);
+  position: relative;
+}
+
+.node-dot.is-active::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-mint);
+  animation: radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes radar-ping {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+.role-card-inner {
+  width: 100%;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.role-card:hover .role-card-inner {
+  transform: translateX(6px);
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.role-card:hover .node-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 10px var(--accent-mint);
+}
+
+.role-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.role-time {
+  color: var(--accent-mint);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.role-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+  background: var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.role-badge.badge-active {
+  color: var(--accent-mint);
+  background: var(--accent-mint-glow);
+}
+
+.role-title {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.company {
+  margin: 0.25rem 0 1.1rem;
+  color: var(--accent-aqua);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.role-detail {
+  max-width: 48rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-size: 0.96rem;
+  margin: 0 0 1.4rem;
+}
+
+.role-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.metric-chip {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.4rem;
+  font: 500 0.72rem 'DM Mono', monospace;
+  transition: all 0.2s ease;
+}
+
+.metric-chip:hover {
+  border-color: var(--accent-mint);
+  color: var(--accent-mint);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 680px) {
+  .timeline-container {
+    padding-left: 1.5rem;
+  }
+  
+  .role-node {
+    left: -1.5rem;
+  }
+
+  .role-card-inner {
+    padding: 1.4rem;
+  }
+
+  .role-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}
