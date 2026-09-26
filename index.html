@@ -2,9 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <meta name="description" content="Rajat Goyal - software engineering, data, and analytical problem-solving." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#090d16" />
+    <title>Rajat Goyal | Software, Data & Problem Solving</title>
+    <script>
+      (function() {
+        const saved = localStorage.getItem('portfolio-theme');
+        const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
